@@ -1,11 +1,10 @@
 package com.example.homework1_android4.ui.fragments.detail
 
-import android.content.ContentValues
-import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.bumptech.glide.Glide
 import com.example.homework1_android4.R
 import com.example.homework1_android4.base.BaseFragment
 import com.example.homework1_android4.databinding.FragmentDetailAnimeBinding
@@ -30,14 +29,16 @@ class DetailAnimeFragment :
             when (it) {
                 is Resource.Error -> {
                     Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()
-                    Log.e(ContentValues.TAG, "error")
                 }
                 is Resource.Loading -> {
                     Toast.makeText(requireContext(), "loading", Toast.LENGTH_SHORT).show()
-                    Log.e(ContentValues.TAG, "loading")
                 }
                 is Resource.Success -> {
-                    binding.textViewDetail.text = it.data?.toString()
+                    binding.textViewDetail.text = it.data?.animeModel?.attributes?.detail
+                    Glide.with(binding.imageViewPoster)
+                        .load(it.data?.animeModel?.attributes?.image?.image)
+                        .into(binding.imageViewPoster)
+                    binding.textView.text = it.data?.animeModel?.attributes?.title?.title
                 }
             }
         }

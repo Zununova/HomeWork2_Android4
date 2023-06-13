@@ -1,7 +1,6 @@
 package com.example.homework1_android4.data.remote
 
-import com.example.homework1_android4.data.apisevices.AnimeApiService
-import okhttp3.OkHttpClient
+import com.example.homework1_android4.data.remote.apisevices.AnimeApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

@@ -5,16 +5,14 @@ import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.homework1_android4.R
 import com.example.homework1_android4.base.BaseFragment
-import com.example.homework1_android4.data.repositories.AnimeRepository
 import com.example.homework1_android4.databinding.FragmentAnimeBinding
 import com.example.homework1_android4.ui.adapters.AnimeAdapter
 import com.example.homework1_android4.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class AnimeFragment : BaseFragment<FragmentAnimeBinding, AnimeViewModel>(R.layout.fragment_anime) {
@@ -32,7 +30,7 @@ class AnimeFragment : BaseFragment<FragmentAnimeBinding, AnimeViewModel>(R.layou
     override fun initialize() {
         super.initialize()
         binding.recyclerViewAnime.apply {
-            layoutManager = LinearLayoutManager(requireContext())
+            layoutManager = GridLayoutManager(requireContext(), 3)
             adapter = animeAdapter
         }
     }
@@ -58,10 +56,5 @@ class AnimeFragment : BaseFragment<FragmentAnimeBinding, AnimeViewModel>(R.layou
                 }
             }
         }
-    }
-
-    override fun setupListener() {
-        super.setupListener()
-
     }
 }

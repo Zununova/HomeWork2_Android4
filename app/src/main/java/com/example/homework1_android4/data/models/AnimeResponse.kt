@@ -4,8 +4,8 @@ import com.google.gson.annotations.SerializedName
 
 data class AnimeResponse<T>(
 
-    @SerializedName("Info")
-    val info: Info,
+    @SerializedName("links")
+    val links: Links,
     @SerializedName("data")
     val animeList: List<T>
 )

@@ -9,7 +9,7 @@ data class Attributes(
     val detail: String,
     @SerializedName("titles")
     val title: Title,
-    @SerializedName("coverImage")
+    @SerializedName("posterImage")
     val image: Image
 
 )

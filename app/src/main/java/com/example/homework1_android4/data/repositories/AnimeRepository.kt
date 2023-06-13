@@ -1,10 +1,9 @@
 package com.example.homework1_android4.data.repositories
 
-import com.example.homework1_android4.data.apisevices.AnimeApiService
-import javax.inject.Inject
 import androidx.lifecycle.liveData
+import com.example.homework1_android4.data.remote.apisevices.AnimeApiService
 import com.example.homework1_android4.utils.Resource
-import retrofit2.Response
+import javax.inject.Inject
 
 class AnimeRepository @Inject constructor(private val service: AnimeApiService) {
 
@@ -25,5 +24,4 @@ class AnimeRepository @Inject constructor(private val service: AnimeApiService) 
             emit(Resource.Error(null, exception.localizedMessage ?: "Error"))
         }
     }
-
 }

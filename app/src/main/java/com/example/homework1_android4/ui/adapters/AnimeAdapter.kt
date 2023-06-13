@@ -9,7 +9,6 @@ import com.bumptech.glide.Glide
 import com.example.homework1_android4.data.models.anime.AnimeModel
 import com.example.homework1_android4.databinding.OneItemBinding
 
-
 class AnimeAdapter(private val onItemClick: (id: Int) -> Unit) :
     ListAdapter<AnimeModel, AnimeAdapter.AnimeViewHolder>(DiffUtilCallback()) {
 
@@ -23,7 +22,8 @@ class AnimeAdapter(private val onItemClick: (id: Int) -> Unit) :
         }
 
         fun onBind(animeModel: AnimeModel?) {
-            Glide.with(binding.imageView).load(animeModel?.attributes?.image?.image).into(binding.imageView)
+            Glide.with(binding.imageView).load(animeModel?.attributes?.image?.image)
+                .into(binding.imageView)
             binding.textViewTitle.text = animeModel?.attributes?.title?.title
         }
     }

@@ -7,18 +7,36 @@
 
     <fragment
         android:id="@+id/animeFragment"
-        android:name="com.example.homework1_android4.ui.fragments.AnimeFragment"
+        android:name="com.example.homework1_android4.ui.fragments.anime.AnimeFragment"
         android:label="fragment_anime"
-        tools:layout="@layout/fragment_anime" >
+        tools:layout="@layout/fragment_anime">
         <action
             android:id="@+id/action_animeFragment_to_detailAnimeFragment"
             app:destination="@id/detailAnimeFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailAnimeFragment"
-        android:name="com.example.homework1_android4.ui.fragments.detail.DetailAnimeFragment"
+        android:name="com.example.homework1_android4.ui.fragments.anime.detail.DetailAnimeFragment"
         android:label="fragment_detail_anime"
-        tools:layout="@layout/fragment_detail_anime" >
+        tools:layout="@layout/fragment_detail_anime">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/mangaFragment"
+        android:name="com.example.homework1_android4.ui.fragments.manga.MangaFragment"
+        android:label="fragment_manga"
+        tools:layout="@layout/fragment_manga" >
+        <action
+            android:id="@+id/action_mangaFragment_to_mangaDetailFragment"
+            app:destination="@id/mangaDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mangaDetailFragment"
+        android:name="com.example.homework1_android4.ui.fragments.manga.detail.MangaDetailFragment"
+        android:label="fragment_manga_detail"
+        tools:layout="@layout/fragment_manga_detail" >
         <argument
             android:name="id"
             app:argType="integer" />

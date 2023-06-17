@@ -1,4 +1,4 @@
-package com.example.homework1_android4.ui.fragments.detail
+package com.example.homework1_android4.ui.fragments.anime.detail
 
 import android.widget.Toast
 import androidx.fragment.app.viewModels

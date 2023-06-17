@@ -1,9 +1,7 @@
-package com.example.homework1_android4.ui.fragments
+package com.example.homework1_android4.ui.fragments.anime
 
-import android.content.ContentValues.TAG
-import android.util.Log
-import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -11,8 +9,8 @@ import com.example.homework1_android4.R
 import com.example.homework1_android4.base.BaseFragment
 import com.example.homework1_android4.databinding.FragmentAnimeBinding
 import com.example.homework1_android4.ui.adapters.AnimeAdapter
-import com.example.homework1_android4.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class AnimeFragment : BaseFragment<FragmentAnimeBinding, AnimeViewModel>(R.layout.fragment_anime) {
@@ -23,9 +21,12 @@ class AnimeFragment : BaseFragment<FragmentAnimeBinding, AnimeViewModel>(R.layou
 
     private fun onClick(id: Int) {
         findNavController().navigate(
-            AnimeFragmentDirections.actionAnimeFragmentToDetailAnimeFragment(id)
+            AnimeFragmentDirections.actionAnimeFragmentToDetailAnimeFragment(
+                id.plus(1)
+            )
         )
     }
+
 
     override fun initialize() {
         super.initialize()
@@ -41,18 +42,11 @@ class AnimeFragment : BaseFragment<FragmentAnimeBinding, AnimeViewModel>(R.layou
     }
 
     private fun subscribeToAnime() {
-        viewModel.fetchAnime().observe(requireActivity()) {
-            when (it) {
-                is Resource.Error -> {
-                    Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()
-                    Log.e(TAG, "error")
-                }
-                is Resource.Loading -> {
-                    Toast.makeText(requireContext(), "loading", Toast.LENGTH_SHORT).show()
-                    Log.e(TAG, "loading")
-                }
-                is Resource.Success -> {
-                    animeAdapter.submitList(it.data?.animeList)
+
+        lifecycleScope.launch {
+            viewModel.fetchAnime().observe(viewLifecycleOwner) {
+                lifecycleScope.launch {
+                    animeAdapter.submitData(it)
                 }
             }
         }

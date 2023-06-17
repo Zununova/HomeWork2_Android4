@@ -3,10 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark"
     android:orientation="vertical"
-    android:paddingHorizontal="20dp"
-    tools:context=".ui.fragments.anime.detail.DetailAnimeFragment">
+    android:background="@color/dark"
+    tools:context=".ui.fragments.manga.detail.MangaDetailFragment">
 
     <ImageView
         android:id="@+id/image_view_poster"

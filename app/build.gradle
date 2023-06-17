@@ -92,4 +92,9 @@ dependencies {
 
     //core_ktx
     implementation 'androidx.core:core-ktx:1.10.1'
+
+    // Paging 3
+    def paging_version = "3.1.1"
+    implementation "androidx.paging:paging-runtime:$paging_version"
+
 }

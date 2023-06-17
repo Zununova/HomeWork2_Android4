@@ -6,7 +6,7 @@
     android:background="@color/dark"
     android:orientation="vertical"
     android:paddingHorizontal="20dp"
-    tools:context=".ui.fragments.anime.detail.DetailAnimeFragment">
+    tools:context=".ui.fragments.detail.anime.DetailAnimeFragment">
 
     <ImageView
         android:id="@+id/image_view_poster"

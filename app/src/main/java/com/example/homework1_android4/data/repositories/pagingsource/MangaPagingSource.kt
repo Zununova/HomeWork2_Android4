@@ -3,6 +3,7 @@ package com.example.homework1_android4.data.repositories.pagingsource
 import android.net.Uri
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.example.homework1_android4.base.BasePagingSource
 import com.example.homework1_android4.data.models.anime.AnimeModel
 import com.example.homework1_android4.data.models.manga.MangaModel
 import com.example.homework1_android4.data.remote.apisevices.MangaApiService
@@ -11,8 +12,7 @@ import java.io.IOException
 
 private const val CHARACTER_STARTING_PAGE_INDEX = 1
 
-class MangaPagingSource(private var service: MangaApiService) : PagingSource<
-        Int, MangaModel>() {
+class MangaPagingSource(private var service: MangaApiService) : BasePagingSource<MangaModel>() {
 
     override fun getRefreshKey(state: PagingState<Int, MangaModel>): Int? {
         return state.anchorPosition?.let { anchorPosition ->

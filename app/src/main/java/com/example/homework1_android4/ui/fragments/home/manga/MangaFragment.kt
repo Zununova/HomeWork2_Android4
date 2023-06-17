@@ -1,4 +1,4 @@
-package com.example.homework1_android4.ui.fragments.anime
+package com.example.homework1_android4.ui.fragments.home.manga
 
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -7,32 +7,32 @@ import androidx.recyclerview.widget.GridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.homework1_android4.R
 import com.example.homework1_android4.base.BaseFragment
-import com.example.homework1_android4.databinding.FragmentAnimeBinding
-import com.example.homework1_android4.ui.adapters.AnimeAdapter
+import com.example.homework1_android4.databinding.FragmentMangaBinding
+import com.example.homework1_android4.ui.adapters.MangaAdapter
+import com.example.homework1_android4.ui.fragments.home.HomeFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class AnimeFragment : BaseFragment<FragmentAnimeBinding, AnimeViewModel>(R.layout.fragment_anime) {
+class MangaFragment : BaseFragment<FragmentMangaBinding, MangaViewModel>(R.layout.fragment_manga) {
 
-    override val binding by viewBinding(FragmentAnimeBinding::bind)
-    override val viewModel: AnimeViewModel by viewModels()
-    private val animeAdapter = AnimeAdapter(this::onClick)
+    override val binding by viewBinding(FragmentMangaBinding::bind)
+    override val viewModel: MangaViewModel by viewModels()
+    private val mangaAdapter = MangaAdapter(this::onClick)
 
     private fun onClick(id: Int) {
         findNavController().navigate(
-            AnimeFragmentDirections.actionAnimeFragmentToDetailAnimeFragment(
+            HomeFragmentDirections.actionHomeFragmentToMangaDetailFragment(
                 id.plus(1)
             )
         )
     }
 
-
     override fun initialize() {
         super.initialize()
-        binding.recyclerViewAnime.apply {
+        binding.recyclerViewManga.apply {
             layoutManager = GridLayoutManager(requireContext(), 3)
-            adapter = animeAdapter
+            adapter = mangaAdapter
         }
     }
 
@@ -44,11 +44,12 @@ class AnimeFragment : BaseFragment<FragmentAnimeBinding, AnimeViewModel>(R.layou
     private fun subscribeToAnime() {
 
         lifecycleScope.launch {
-            viewModel.fetchAnime().observe(viewLifecycleOwner) {
+            viewModel.fetchManga().observe(viewLifecycleOwner) {
                 lifecycleScope.launch {
-                    animeAdapter.submitData(it)
+                    mangaAdapter.submitData(it)
                 }
             }
         }
     }
+
 }

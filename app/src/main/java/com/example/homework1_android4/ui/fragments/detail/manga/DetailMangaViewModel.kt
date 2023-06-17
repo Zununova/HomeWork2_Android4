@@ -1,4 +1,4 @@
-package com.example.homework1_android4.ui.fragments.manga.detail
+package com.example.homework1_android4.ui.fragments.detail.manga
 
 import com.example.homework1_android4.base.BaseViewModel
 import com.example.homework1_android4.data.repositories.MangaRepository

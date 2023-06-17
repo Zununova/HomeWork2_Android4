@@ -1,10 +1,5 @@
-package com.example.homework1_android4.ui.fragments.manga.detail
+package com.example.homework1_android4.ui.fragments.detail.manga
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
@@ -12,10 +7,8 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
 import com.example.homework1_android4.R
 import com.example.homework1_android4.base.BaseFragment
-import com.example.homework1_android4.databinding.FragmentMangaBinding
 import com.example.homework1_android4.databinding.FragmentMangaDetailBinding
-import com.example.homework1_android4.ui.fragments.anime.detail.DetailAnimeFragmentArgs
-import com.example.homework1_android4.ui.fragments.manga.MangaViewModel
+import com.example.homework1_android4.ui.fragments.manga.detail.MangaDetailFragmentArgs
 import com.example.homework1_android4.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -8,7 +8,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class MangaViewModel @Inject constructor(private val repository: MangaRepository) : BaseViewModel() {
+class MangaViewModel @Inject constructor(private val repository: MangaRepository) :
+    BaseViewModel() {
 
     fun fetchManga() = repository.fetchManga().cachedIn(viewModelScope)
 }

@@ -8,8 +8,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class AnimeViewModel @Inject constructor(private val repository: AnimeRepository) : BaseViewModel() {
+class AnimeViewModel @Inject constructor(private val repository: AnimeRepository) :
+    BaseViewModel() {
 
     fun fetchAnime() = repository.fetchAnime().cachedIn(viewModelScope)
-
 }

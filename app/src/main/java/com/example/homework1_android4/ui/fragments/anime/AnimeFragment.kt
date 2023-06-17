@@ -1,5 +1,6 @@
 package com.example.homework1_android4.ui.fragments.anime
 
+import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -9,6 +10,7 @@ import com.example.homework1_android4.R
 import com.example.homework1_android4.base.BaseFragment
 import com.example.homework1_android4.databinding.FragmentAnimeBinding
 import com.example.homework1_android4.ui.adapters.AnimeAdapter
+import com.example.homework1_android4.ui.fragments.home.HomeFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -21,7 +23,7 @@ class AnimeFragment : BaseFragment<FragmentAnimeBinding, AnimeViewModel>(R.layou
 
     private fun onClick(id: Int) {
         findNavController().navigate(
-            AnimeFragmentDirections.actionAnimeFragmentToDetailAnimeFragment(
+            HomeFragmentDirections.actionHomeFragmentToDetailAnimeFragment(
                 id.plus(1)
             )
         )
@@ -47,6 +49,7 @@ class AnimeFragment : BaseFragment<FragmentAnimeBinding, AnimeViewModel>(R.layou
             viewModel.fetchAnime().observe(viewLifecycleOwner) {
                 lifecycleScope.launch {
                     animeAdapter.submitData(it)
+                    Log.e("activity", it.toString())
                 }
             }
         }

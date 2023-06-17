@@ -9,6 +9,7 @@ import com.example.homework1_android4.R
 import com.example.homework1_android4.base.BaseFragment
 import com.example.homework1_android4.databinding.FragmentMangaBinding
 import com.example.homework1_android4.ui.adapters.MangaAdapter
+import com.example.homework1_android4.ui.fragments.home.HomeFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -17,11 +18,11 @@ class MangaFragment : BaseFragment<FragmentMangaBinding, MangaViewModel>(R.layou
 
     override val binding by viewBinding(FragmentMangaBinding::bind)
     override val viewModel: MangaViewModel by viewModels()
-    private val mangaAdapter = MangaAdapter(this :: onClick)
+    private val mangaAdapter = MangaAdapter(this::onClick)
 
     private fun onClick(id: Int) {
         findNavController().navigate(
-            MangaFragmentDirections.actionMangaFragmentToMangaDetailFragment(
+            HomeFragmentDirections.actionHomeFragmentToMangaDetailFragment(
                 id.plus(1)
             )
         )

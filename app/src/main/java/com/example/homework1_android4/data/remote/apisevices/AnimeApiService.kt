@@ -1,8 +1,8 @@
 package com.example.homework1_android4.data.remote.apisevices
 
-import com.example.homework1_android4.data.models.AnimeResponse
-import com.example.homework1_android4.data.models.anime.AnimeModel
-import com.example.homework1_android4.data.models.anime.DataModel
+import com.example.homework1_android4.data.models.Response
+import com.example.homework1_android4.data.models.models.Model
+import com.example.homework1_android4.data.models.models.DataModel
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -13,7 +13,7 @@ interface AnimeApiService {
     suspend fun fetchAnime(
         @Query("page[limit]") pageSize: Int,
         @Query("page[offset]") offset: Int
-    ): AnimeResponse<AnimeModel>
+    ): Response<Model>
 
     @GET("anime/{id}")
     suspend fun fetchIdAnime(

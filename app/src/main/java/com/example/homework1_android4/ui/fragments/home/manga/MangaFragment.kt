@@ -1,5 +1,6 @@
 package com.example.homework1_android4.ui.fragments.home.manga
 
+import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -47,9 +48,9 @@ class MangaFragment : BaseFragment<FragmentMangaBinding, MangaViewModel>(R.layou
             viewModel.fetchManga().observe(viewLifecycleOwner) {
                 lifecycleScope.launch {
                     mangaAdapter.submitData(it)
+                    Log.e("activity", it.toString())
                 }
             }
         }
     }
-
 }

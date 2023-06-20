@@ -5,7 +5,6 @@ import androidx.paging.PagingConfig
 import androidx.paging.liveData
 import com.example.homework1_android4.base.BaseRepository
 import com.example.homework1_android4.data.remote.apisevices.MangaApiService
-import com.example.homework1_android4.data.repositories.pagingsource.AnimePagingSource
 import com.example.homework1_android4.data.repositories.pagingsource.MangaPagingSource
 import javax.inject.Inject
 

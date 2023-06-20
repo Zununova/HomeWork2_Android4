@@ -1,19 +1,17 @@
 package com.example.homework1_android4.data.repositories.pagingsource
 
 import android.net.Uri
-import androidx.paging.PagingSource
-import androidx.paging.PagingState
 import com.example.homework1_android4.base.BasePagingSource
-import com.example.homework1_android4.data.models.anime.AnimeModel
+import com.example.homework1_android4.data.models.models.Model
 import com.example.homework1_android4.data.remote.apisevices.AnimeApiService
 import retrofit2.HttpException
 import java.io.IOException
 
 private const val CHARACTER_STARTING_PAGE_INDEX = 1
 
-class AnimePagingSource (private var service: AnimeApiService) : BasePagingSource<AnimeModel>() {
+class AnimePagingSource (private var service: AnimeApiService) : BasePagingSource<Model>() {
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, AnimeModel> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Model> {
         val position = params.key ?: CHARACTER_STARTING_PAGE_INDEX
         val pageSize = params.loadSize
         return try {

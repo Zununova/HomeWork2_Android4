@@ -8,7 +8,6 @@ import com.bumptech.glide.Glide
 import com.example.homework1_android4.R
 import com.example.homework1_android4.base.BaseFragment
 import com.example.homework1_android4.databinding.FragmentDetailAnimeBinding
-import com.example.homework1_android4.ui.fragments.anime.detail.DetailAnimeFragmentArgs
 import com.example.homework1_android4.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 

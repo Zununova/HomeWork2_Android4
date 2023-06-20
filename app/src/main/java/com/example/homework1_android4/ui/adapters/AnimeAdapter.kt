@@ -7,11 +7,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.homework1_android4.ProgressTarget
-import com.example.homework1_android4.data.models.anime.AnimeModel
+import com.example.homework1_android4.data.models.models.Model
 import com.example.homework1_android4.databinding.OneItemBinding
 
 class AnimeAdapter(private val onItemClick: (id: Int) -> Unit) :
-    PagingDataAdapter<AnimeModel, AnimeAdapter.AnimeViewHolder>(DiffUtilCallback()) {
+    PagingDataAdapter<Model, AnimeAdapter.AnimeViewHolder>(DiffUtilCallback()) {
 
     inner class AnimeViewHolder(private val binding: OneItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -22,7 +22,7 @@ class AnimeAdapter(private val onItemClick: (id: Int) -> Unit) :
             }
         }
 
-        fun onBind(animeModel: AnimeModel?) = with(binding) {
+        fun onBind(animeModel: Model?) = with(binding) {
 
             textViewTitle.text = animeModel?.attributes?.title?.title
             val progressTarget = ProgressTarget(binding.progressBar, binding.imageView)
@@ -49,18 +49,18 @@ class AnimeAdapter(private val onItemClick: (id: Int) -> Unit) :
 
     companion object {
 
-        class DiffUtilCallback : DiffUtil.ItemCallback<AnimeModel>() {
+        class DiffUtilCallback : DiffUtil.ItemCallback<Model>() {
 
             override fun areItemsTheSame(
-                oldItem: AnimeModel,
-                newItem: AnimeModel
+                oldItem: Model,
+                newItem: Model
             ): Boolean {
                 return oldItem.id == newItem.id
             }
 
             override fun areContentsTheSame(
-                oldItem: AnimeModel,
-                newItem: AnimeModel
+                oldItem: Model,
+                newItem: Model
             ): Boolean {
                 return oldItem == newItem
             }

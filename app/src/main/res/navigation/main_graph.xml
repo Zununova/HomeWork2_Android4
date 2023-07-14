@@ -2,42 +2,21 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/loginFragment">
+    android:id="@+id/main_graph"
+    app:startDestination="@id/mainFragment">
 
     <fragment
-        android:id="@+id/detailAnimeFragment"
-        android:name="com.example.homework1_android4.ui.fragments.detail.anime.DetailAnimeFragment"
-        android:label="fragment_detail_anime"
-        tools:layout="@layout/fragment_detail_anime">
-        <argument
-            android:name="id"
-            app:argType="integer" />
-    </fragment>
-    <fragment
-        android:id="@+id/mangaDetailFragment"
-        android:name="com.example.homework1_android4.ui.fragments.detail.manga.MangaDetailFragment"
-        android:label="fragment_manga_detail"
-        tools:layout="@layout/fragment_manga_detail" >
-        <argument
-            android:name="id"
-            app:argType="integer" />
-    </fragment>
-    <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.example.homework1_android4.ui.fragments.home.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        android:id="@+id/registerFragment"
+        android:name="com.example.homework1_android4.ui.fragments.singin.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
         <action
-            android:id="@+id/action_homeFragment_to_detailAnimeFragment"
-            app:destination="@id/detailAnimeFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_mangaDetailFragment"
-            app:destination="@id/mangaDetailFragment" />
+            android:id="@+id/action_registerFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.example.homework1_android4.ui.fragments.login.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        android:id="@+id/mainFragment"
+        android:name="com.example.homework1_android4.ui.fragments.home.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
 </navigation>

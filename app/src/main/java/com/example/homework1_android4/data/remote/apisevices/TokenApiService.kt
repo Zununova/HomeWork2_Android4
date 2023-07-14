@@ -13,5 +13,5 @@ interface TokenApiService {
     @POST("oauth/token")
     suspend fun fetchToken(
         @Body request: LogDataModel
-    ): Response<TokenResponse>
+    ): TokenResponse
 }

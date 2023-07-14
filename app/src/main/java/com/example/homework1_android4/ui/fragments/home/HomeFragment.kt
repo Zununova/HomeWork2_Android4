@@ -2,11 +2,13 @@ package com.example.homework1_android4.ui.fragments.home
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.homework1_android4.R
 import com.example.homework1_android4.databinding.FragmentHomeBinding
 import com.example.homework1_android4.ui.adapters.HomeAdapter
+import com.example.homework1_android4.utils.PreferenceHelper
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 

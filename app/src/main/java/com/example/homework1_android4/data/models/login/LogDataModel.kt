@@ -7,9 +7,6 @@ data class LogDataModel(
     @SerializedName("grant_type")
     val grant_type: String,
 
-    @SerializedName("client_id")
-    val client_id: String,
-
     @SerializedName("username")
     val username: String,
 
